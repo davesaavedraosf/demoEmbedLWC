@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cunning-goat-7tn2cz-dev-ed.trailblaze.my.salesforce.com/lightning/lightning.out.js"></script>
     <title>Tabbed Website</title>
     <style>
         .tab {
@@ -74,6 +75,16 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+         $Lightning.use("c:demoDashboardLightningOut", function() {
+        $Lightning.createComponent(
+            "c:sampleDatatable",
+            { msg : "It works (LWC)!" },
+            "lwcLightning",
+            function(cmp) {
+                console.log("LWC component was created");
+            }
+        );
+    });
     </script>
 
 </body>
